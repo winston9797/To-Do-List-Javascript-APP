@@ -66,9 +66,7 @@ function addItemToList(){
     title = document.getElementById('title').value;
     importance = document.getElementById('importance').value;
     id = 0;
-    if(document.getElementById('title').value == 'ism'){
-        alert('sma3in sit7awa');
-    }
+    
     if(document.getElementById('title').value != '' ){
         if(list !== null){
             id = list.length + 1;
