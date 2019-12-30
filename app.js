@@ -1,7 +1,7 @@
 //list object
 var list = [];
 var title,importance,id;
-
+console.log(list);
 //for debugin
 function logData(){
     return list;
@@ -18,7 +18,9 @@ document.querySelector('.list-group').addEventListener('click',removeItem);
 document.getElementById('clear').addEventListener('click',clearItems);
 
 // get data from local storage
-list = JSON.parse(localStorage.getItem('list'));
+if(localStorage.getItem('list')){
+    list = JSON.parse(localStorage.getItem('list'));
+}
 //painting in the UI using paint ui function
 for(li in list){
     paintItemToUI(list[li]);
@@ -64,14 +66,19 @@ function addItemToList(){
     title = document.getElementById('title').value;
     importance = document.getElementById('importance').value;
     id = 0;
-
+    if(document.getElementById('title').value == 'ism'){
+        alert('sma3in sit7awa');
+    }
     if(document.getElementById('title').value != '' ){
-        if(list != null){
+        if(list !== null){
             id = list.length + 1;
         }
         //add to list
         var item = {title,importance,id};
-        list.push(item);
+        if(list !== null){
+            list.push(item);
+        }
+    
 
         //clearing input
         document.getElementById('title').value = '';
