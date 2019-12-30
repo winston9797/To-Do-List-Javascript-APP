@@ -66,7 +66,9 @@ function addItemToList(){
     id = 0;
 
     if(document.getElementById('title').value != '' ){
-        id = list.length + 1;
+        if(list != null){
+            id = list.length + 1;
+        }
         //add to list
         var item = {title,importance,id};
         list.push(item);
